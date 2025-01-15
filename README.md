@@ -166,14 +166,20 @@ Deploying multiple containers within the same deployment.
 ## Required secrets
 
 ```bash
-    woodpecker-cli secret add --image=infras/woodpeckerci-kubernetes \
-        your-org/your-repo KUBERNETES_SERVER https://mykubernetesapiserver
+    woodpecker-cli secret add --image=euryecetelecom/woodpeckerci-kubernetes \
+        --repository your-org/your-repo \
+        --name KUBERNETES_SERVER \
+        --value https://mykubernetesapiserver
 
-    woodpecker-cli secret add --image=infras/woodpeckerci-kubernetes \
-        your-org/your-repo KUBERNETES_CERT <base64 encoded CA.crt>
+    woodpecker-cli secret add --image=euryecetelecom/woodpeckerci-kubernetes \
+        --repository your-org/your-repo \
+        --name KUBERNETES_CERT \
+        --value <base64 encoded CA.crt>
 
-    woodpecker-cli secret add --image=infras/woodpeckerci-kubernetes \
-        your-org/your-repo KUBERNETES_TOKEN eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJ...
+    woodpecker-cli secret add --image=euryecetelecom/woodpeckerci-kubernetes \
+        --repository your-org/your-repo \
+        --name KUBERNETES_TOKEN \
+        --value eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJ...
 ```
 
 When using TLS Verification, ensure Server Certificate used by kubernetes API server 
